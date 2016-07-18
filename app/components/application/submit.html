@@ -1,0 +1,22 @@
+<div style="text-align: center;font-size: 16px;margin-top: 60px">
+  <div style="text-align: center;margin: 20px auto;margin-bottom: 60px">
+    <h3 ng-if="vm.course.name" style="font-size: 20px">{{vm.course.name}}</h3>
+  </div>
+  <div class="row" style="width: 672px;margin: 0 auto;border: 2px solid #d4d4d4;padding-top: 20px;padding-bottom: 20px;position: relative">
+    <div class="col-md-6" style="border-right: 1px solid #d4d4d4;padding: 0 70px">
+      <uploader files="vm.add.attachments" style="width: 200px;margin: 0 auto;"></uploader><br/>
+      <p style="margin-top: -15px;font-size: 14px">请 <a ui-sref="admin.jx.application.navigation.show" class="red-font">查看下载申请表</a>，打印后由单位签字盖章后，拍照上传</p>
+    </div>
+    <div class="col-md-6" ng-if="vm.tag && vm.accommodation.accommodation" style="padding: 0 70px;position: absolute;top: 50%;right: 0;height: 58px;margin-top: -29px">
+      <label for="unaccommodation"><input type="radio" name="accommodation" ng-model="vm.add.accommodation" id="unaccommodation" ng-value="false"/><span style="margin-left: 10px;margin-right: 16px">不住宿</span></label>
+      <label for="accommodation"><input type="radio" name="accommodation" ng-model="vm.add.accommodation" id="accommodation" ng-value="true"/><span style="margin-left: 10px">住宿</span></label>
+      <p style="color: #999;font-size: 14px;">{{vm.accommodation.intro}}</p>
+    </div>
+    <div class="col-md-6" ng-if="!vm.accommodation.accommodation && vm.tag" style="position: absolute;top: 50%;right: 0;height: 58px;margin-top: -29px">
+      <p style="line-height: 58px" ng-init="vm.add.accommodation = false">该医院暂时不提供住宿</p>
+    </div>
+  </div>
+  <div style="clear: both"></div>
+  <div class="btn btn-primary" style="margin-top: 50px" ng-click="vm.submit()">提交申请</div>
+  <p style="color: #999;margin-top: 20px;font-size: 14px">提交申请后，将无法修改</p>
+</div>

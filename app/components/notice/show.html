@@ -1,0 +1,25 @@
+<div class="ibox">
+  <div class="ibox-content content" style="padding: 15px 10px 10px 10px;">
+   <div class="ibox">
+     <div class="ibox-content notice-backgrount" style="min-height: 465px;padding-top: 80px">
+       <div style="text-align: center">
+         <h3 style="margin-bottom: 19px;color: #000;font-size: 22px">{{vm.show.name}}</h3>
+         <p>{{vm.show.published_at}}</p>
+       </div>
+       <div class="row"  style="margin-top: 66px">
+         <div class="col-md-12" id="info" style="padding: 0 68px 20px">
+         </div>
+       </div>
+       <div class="row" style="padding: 0 68px 20px">
+         <div ng-if="vm.show.attachments.length">
+           <h4>附件:</h4>
+           <div ng-repeat="i in vm.show.attachments">
+             <a href="{{i.url}}">{{i.name}}</a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
+</div>
+</div>

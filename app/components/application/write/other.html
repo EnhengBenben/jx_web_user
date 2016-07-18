@@ -1,0 +1,79 @@
+<div class="ibox">
+  <div class="ibox-content">
+
+    <div class="spiner-example" ng-if="!vm.other">
+      <div class="sk-spinner sk-spinner-fading-circle">
+        <div class="sk-circle1 sk-circle"></div>
+        <div class="sk-circle2 sk-circle"></div>
+        <div class="sk-circle3 sk-circle"></div>
+        <div class="sk-circle4 sk-circle"></div>
+        <div class="sk-circle5 sk-circle"></div>
+        <div class="sk-circle6 sk-circle"></div>
+        <div class="sk-circle7 sk-circle"></div>
+        <div class="sk-circle8 sk-circle"></div>
+        <div class="sk-circle9 sk-circle"></div>
+        <div class="sk-circle10 sk-circle"></div>
+        <div class="sk-circle11 sk-circle"></div>
+        <div class="sk-circle12 sk-circle"></div>
+      </div>
+    </div>
+    <form class="form-horizontal" novalidate ng-if="vm.other">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="">业务水平</label>
+        <div class="col-md-9">
+          <textarea required ng-model="vm.other.professional_level" class="form-control" placeholder="最多输入120个字符" style="min-height: 68px;font-size: 13px" maxlength="120"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="" style="padding-left: 0">进修的主要目的和要求</label>
+        <div class="col-md-9">
+          <textarea required ng-model="vm.other.requirement" class="form-control" placeholder="最多输入120个字符" style="min-height: 68px;font-size: 13px;" maxlength="120"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="" style="padding-left: 0">医德表现及科学作风</label>
+        <div class="col-md-9">
+          <textarea required ng-model="vm.other.expression" class="form-control" placeholder="最多输入120个字符" style="min-height: 68px;font-size: 13px" maxlength="120"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="">其他资质附件</label>
+      </div>
+      <div class="form-group">
+        <label class="col-md-1 col-md-offset-1 control-label" for="">身份证</label>
+        <div class="col-md-9">
+          <uploader files="vm.other.ID_card"></uploader>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-1 col-md-offset-1 control-label" for="">毕业证</label>
+        <div class="col-md-9">
+          <uploader files="vm.other.diploma"></uploader>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-1 col-md-offset-1 control-label" for="">学位证</label>
+        <div class="col-md-9">
+          <uploader files="vm.other.degree_photo"></uploader>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-1 col-md-offset-1 control-label" for="">执业证</label>
+        <div class="col-md-9">
+          <uploader files="vm.other.practicing_certificate"></uploader>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-1 col-md-offset-1 control-label" for="">资格证</label>
+        <div class="col-md-9">
+          <uploader files="vm.other.qualification_certificate"></uploader>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <div class="btn btn-primary" ng-click="vm.save()" style="padding: 6px 20px">保存</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

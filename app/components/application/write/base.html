@@ -1,0 +1,142 @@
+<div class="ibox">
+  <div class="ibox-content">
+
+    <div class="spiner-example" ng-if="!vm.base">
+      <div class="sk-spinner sk-spinner-fading-circle">
+        <div class="sk-circle1 sk-circle"></div>
+        <div class="sk-circle2 sk-circle"></div>
+        <div class="sk-circle3 sk-circle"></div>
+        <div class="sk-circle4 sk-circle"></div>
+        <div class="sk-circle5 sk-circle"></div>
+        <div class="sk-circle6 sk-circle"></div>
+        <div class="sk-circle7 sk-circle"></div>
+        <div class="sk-circle8 sk-circle"></div>
+        <div class="sk-circle9 sk-circle"></div>
+        <div class="sk-circle10 sk-circle"></div>
+        <div class="sk-circle11 sk-circle"></div>
+        <div class="sk-circle12 sk-circle"></div>
+      </div>
+    </div>
+    <form class="form-horizontal" novalidate id="form-base" ng-if="vm.base">
+      <div class="row" style="padding-bottom: 5px;margin-bottom: 10px;margin-top: 40px;position: relative">
+        <div class="col-md-10">
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="article_title">姓名</label>
+            <div class="col-md-3">
+              <input type="text" required ng-model="vm.base.name" class="form-control" id="article_title" placeholder="">
+            </div>
+            <label class="col-md-3 control-label" for="article_title">性别</label>
+            <div class="col-md-3">
+              <select class="form-control" ng-model="vm.base.gender" id="category" ng-options="r.name as r.name for r in vm.genders">
+                <option value="">请选择性别</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="article_title">籍贯</label>
+            <div class="col-md-3">
+              <input type="text" required ng-model="vm.base.homeland" class="form-control" id="article_title" placeholder="">
+            </div>
+            <label class="col-md-3 control-label" for="article_title">民族</label>
+            <div class="col-md-3">
+              <input type="text" required ng-model="vm.base.nation" class="form-control" id="article_title" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="article_title">政治面貌</label>
+            <div class="col-md-3">
+              <select class="form-control" ng-model="vm.base.political_status" id="category"
+                      ng-options="r.name as r.name for r in vm.political">
+                <option value="">请选择政治面貌</option>
+              </select>
+            </div>
+            <label class="col-md-3 control-label" for="article_title">手机号</label>
+            <div class="col-md-3">
+              <input type="text" required ng-model="vm.base.mobile" class="form-control" id="article_title" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="article_title">出生日期</label>
+            <div class="col-md-3">
+              <input type="text" date-time min-view="date" format="YYYY-MM-DD" timezone="Asia/Shanghai" auto-close="true"
+                     ng-model="vm.base.birthday" class="form-control" id="start_at">
+            </div>
+            <label class="col-md-3 control-label" for="article_title">婚姻状况</label>
+            <div class="col-md-3">
+              <select class="form-control" ng-model="vm.base.marital_status" id="category"
+                      ng-options="r.name as r.name for r in vm.marital">
+                <option value="">请选择婚姻状况</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="article_title" >健康状况</label>
+            <div class="col-md-3">
+              <select class="form-control" ng-model="vm.base.health_status" id="category"
+                      ng-options="r.name as r.name for r in vm.health">
+                <option value="">请选择健康状况</option>
+              </select>
+            </div>
+            <label class="col-md-3 control-label" for="article_title">身份证号</label>
+            <div class="col-md-3">
+              <input type="text" required ng-model="vm.base.id_no" class="form-control" id="article_title" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label class="col-md-2 control-label" for="article_title">电子邮箱</label>
+            <div class="col-md-3" >
+              <input type="text" required ng-model="vm.base.email" class="form-control" id="article_title" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="article_title">家属姓名</label>
+            <div class="col-md-2">
+              <input type="text" required ng-model="vm.base.relative.data.name" class="form-control" id="article_title" placeholder="">
+            </div>
+            <label class="col-md-2 control-label" for="article_title">家属手机号</label>
+            <div class="col-md-2" style="padding-right: 0">
+              <input type="text" required ng-model="vm.base.relative.data.mobile" class="form-control" id="article_title" placeholder="">
+            </div>
+            <label class="col-md-2 control-label" for="article_title">与本人关系</label>
+            <div class="col-md-2">
+              <input type="text" required ng-model="vm.base.relative.data.relationship" class="form-control" id="article_title" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="article_title">主管姓名</label>
+            <div class="col-md-2">
+              <input type="text" required ng-model="vm.base.director.data.name" class="form-control" id="article_title" placeholder="">
+            </div>
+            <label class="col-md-2 control-label" for="article_title">主管手机号</label>
+            <div class="col-md-2" style="padding-right: 0">
+              <input type="text" required ng-model="vm.base.director.data.mobile" class="form-control" id="article_title" placeholder="">
+            </div>
+            <label class="col-md-2 control-label" for="article_title">主管职务</label>
+            <div class="col-md-2">
+              <input type="text" required ng-model="vm.base.director.data.duty" class="form-control" id="article_title" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 20px">
+            <div class="col-md-5 col-md-offset-2">
+              <div class="btn btn-primary" ng-click="vm.save()" style="padding: 6px 20px;">保存</div>
+              <div class="help-block">都是必填项，如果没有值，请填“无”</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2"  style="text-align: center;position: absolute;right: 50px;width: 20%">
+          <div style="margin-top: 10px">
+            <label class="control-label">证件照*</label>
+            <uploader files="vm.base.photo"></uploader>
+          </div>
+         <div style="width: 70px;height: 90px;display: inline-block;margin-top: 10px">
+           <img ng-src="{{vm.base.photo[0].url}}" style="width: 100%;height: 100%"/>
+         </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

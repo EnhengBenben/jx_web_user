@@ -1,0 +1,196 @@
+<div class="ibox">
+  <div class="ibox-content">
+
+    <div class="spiner-example" ng-if="vm.showList">
+      <div class="sk-spinner sk-spinner-fading-circle">
+        <div class="sk-circle1 sk-circle"></div>
+        <div class="sk-circle2 sk-circle"></div>
+        <div class="sk-circle3 sk-circle"></div>
+        <div class="sk-circle4 sk-circle"></div>
+        <div class="sk-circle5 sk-circle"></div>
+        <div class="sk-circle6 sk-circle"></div>
+        <div class="sk-circle7 sk-circle"></div>
+        <div class="sk-circle8 sk-circle"></div>
+        <div class="sk-circle9 sk-circle"></div>
+        <div class="sk-circle10 sk-circle"></div>
+        <div class="sk-circle11 sk-circle"></div>
+        <div class="sk-circle12 sk-circle"></div>
+      </div>
+    </div>
+
+    <form class="form-horizontal" novalidate id="form-study" ng-if="!vm.showList">
+      <div class="form-group">
+        <label class="col-md-1 control-label" for="article_title" style="padding-left: 0">毕业院校</label>
+        <div class="col-md-2" style="padding-left: 15px;width: 195px">
+          <input type="text" required ng-model="vm.add.graduate_school" class="form-control" id="article_title" placeholder="">
+        </div>
+        <label class="col-md-1 control-label" for="article_title" style="padding-left: 0">毕业时间</label>
+        <div class="col-md-2">
+          <input type="text" required ng-model="vm.add.graduate_date" format="YYYY-MM-DD" date-time min-view="date" timezone="Asia/Shanghai" auto-close="true"
+                 class="form-control"  placeholder="">
+        </div>
+        <label class="col-md-1 control-label" for="article_title" style="padding-left: 0">最高学历</label>
+        <div class="col-md-2">
+          <select class="form-control" ng-model="vm.add.degree_max_id" id="category" ng-options="r.id as r.name for r in vm.settings.degree">
+            <option value="">请选择</option>
+          </select>
+        </div>
+        <label class="col-md-1 control-label" for="article_title" style="padding-left: 0">外语能力</label>
+        <div class="col-md-2">
+          <input type="text" required ng-model="vm.add.foreign_language" class="form-control" id="article_title" placeholder="">
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 0">
+        <label class="col-md-1 control-label" style="padding-left: 0">执业证书</label>
+        <div class="col-md-11">
+          <table class="table table-bordered">
+            <tbody>
+            <tr class="none-border">
+              <td style="color: inherit;font-weight: 500">编码</td>
+              <td style="color: inherit;font-weight: 500">发证日期</td>
+              <td style="color: inherit;font-weight: 500">发证机关</td>
+            </tr>
+            <tr class="none-border">
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="vm.add.practicing_certificate_no"/>
+              </td>
+              <td>
+                <input type="text" date-time min-view="date" format="YYYY-MM-DD" timezone="Asia/Shanghai" auto-close="true"
+                       ng-model="vm.add.practicing_certificate_date" class="form-control" id="">
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="vm.add.practicing_certificate_org"/>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 0">
+        <label class="col-md-1 control-label" style="padding-left: 0">资格证书</label>
+        <div class="col-md-11">
+          <table class="table table-bordered">
+            <tbody>
+            <tr class="none-border">
+              <td style="color: inherit;font-weight: 500">编码</td>
+              <td style="color: inherit;font-weight: 500">发证日期</td>
+              <td style="color: inherit;font-weight: 500">发证机关</td>
+            </tr>
+            <tr class="none-border">
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="vm.add.qualification_certificate_no"/>
+              </td>
+              <td>
+                <input type="text" date-time min-view="date" format="YYYY-MM-DD" timezone="Asia/Shanghai" auto-close="true"
+                       ng-model="vm.add.qualification_certificate_date" class="form-control" id="">
+
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="vm.add.qualification_certificate_org"/>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 0">
+        <label class="col-md-1 control-label" style="padding-left: 0">学习经历</label>
+        <div class="col-md-11">
+          <table class="table table-bordered">
+            <tbody>
+            <tr  class="none-border">
+              <td style="color: inherit;font-weight: 500">开始时间</td>
+              <td style="color: inherit;font-weight: 500">结束时间</td>
+              <td style="color: inherit;font-weight: 500">学校</td>
+              <td style="color: inherit;font-weight: 500">专业</td>
+              <td style="width: 120px;color: inherit;font-weight: 500">学历</td>
+              <td>操作</td>
+            </tr>
+            <tr ng-repeat="o in vm.add.education.data track by $index" ng-init = "$index = 1" class="none-border">
+              <td>
+                <input type="text" date-time min-view="date" format="YYYY-MM-DD" timezone="Asia/Shanghai" auto-close="true"
+                       ng-model="o.start_date" class="form-control" id="start_at">
+              </td>
+              <td>
+                <input type="text" date-time min-view="date" format="YYYY-MM-DD" timezone="Asia/Shanghai" auto-close="true"
+                       ng-model="o.graduate_date" class="form-control" id="graduate_date">
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="o.school_name"/>
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="o.major"/>
+              </td>
+              <td>
+                <input class="form-control" ng-model="o.degree" type="text"/>
+              </td>
+              <td style="width: 50px;">
+                <div class="btn btn-danger btn-sm" ng-click="vm.removeOption($index)" style="padding: 2px 10px;"><i
+                  class="fa fa-trash-o"></i> 删除
+                </div>
+              </td>
+            </tr>
+            <tr  class="none-border">
+              <td colspan="5">
+              </td>
+              <td style="width: 50px;">
+                <div class="btn btn-primary btn-sm"
+                     ng-click="vm.addOption()" style="padding: 2px 10px;">
+                  <i class="fa fa-plus"></i> 添加
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 0">
+        <label class="col-lg-1 control-label" style="padding-left: 0;padding-top: 2px">论文科研</label>
+        <div class="col-lg-11">
+          <table class="table table-bordered">
+            <tbody>
+            <tr  class="none-border">
+              <td style="width: 50%;color: inherit;font-weight: 500">题目</td>
+              <td style="color: inherit;font-weight: 500">发表时间</td>
+              <td style="color: inherit;font-weight: 500">发表刊物</td>
+              <td style="color: inherit;font-weight: 500">操作</td>
+            </tr>
+            <tr ng-repeat="o in vm.add.paper.data track by $index" ng-init = "$index = 1" class="none-border">
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="o.title"/>
+              </td>
+              <td>
+                <input type="text" date-time min-view="date" format="YYYY-MM-DD" timezone="Asia/Shanghai" auto-close="true"
+                       ng-model="o.date" class="form-control">
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="o.journal"/>
+              </td>
+              <td style="width: 50px;">
+                <div class="btn btn-danger btn-sm" ng-click="vm.removePage($index)" style="padding: 2px 10px;"><i
+                  class="fa fa-trash-o"></i> 删除
+                </div>
+              </td>
+            </tr>
+            <tr  class="none-border">
+              <td colspan="3">
+              </td>
+              <td style="width: 50px;">
+                <div class="btn btn-primary btn-sm"
+                     ng-click="vm.addPage()" style="padding: 2px 10px;">
+                  <i class="fa fa-plus"></i> 添加
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="btn btn-primary" ng-click="vm.save()" style="padding: 6px 20px;">保存</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

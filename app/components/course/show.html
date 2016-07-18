@@ -1,0 +1,52 @@
+<div class="ibox">
+  <div class="ibox-content content" style="padding: 15px 10px 10px 10px">
+    <div class="ibox">
+      <div class="ibox-content notice-backgrount" style="min-height: 465px;padding-top: 80px">
+        <div style="text-align: center">
+          <h3 style="margin-bottom: 19px;color: #000;font-size: 22px">{{vm.show.name}}</h3>
+          <p>{{vm.show.published_at}}</p>
+        </div>
+        <div class="row" style="margin-top: 66px">
+          <div class="col-md-12" style="padding: 0 68px 20px">
+            <div>
+              <h4 style="display: inline-block;color: #575757;font-size: 15px">申请截止&nbsp;:&nbsp;</h4>
+              <p style="margin-top: 5px;display: inline-block;color: #575757;font-size: 15px">{{vm.show.application_deadline}}</p>
+            </div>
+            <div>
+              <h4 style="display: inline-block;color: #575757;font-size: 15px">发榜日期&nbsp;:&nbsp;</h4>
+              <p style="margin-top: 5px;display: inline-block;color: #575757;font-size: 15px">{{vm.show.announcement_date}}</p>
+            </div>
+            <div>
+              <h4 style="display: inline-block;color: #575757;font-size: 15px">报道日期&nbsp;:&nbsp;</h4>
+              <p style="margin-top: 5px;display: inline-block;color: #575757;font-size: 15px">{{vm.show.enrollment_date}}</p>
+            </div>
+            <div>
+              <h4 style="display: inline-block;color: #575757;font-size: 15px">结业日期&nbsp;:&nbsp;</h4>
+              <p style="margin-top: 5px;display: inline-block;color: #575757;font-size: 15px">{{vm.show.graduation_date}}</p>
+            </div>
+            <div>
+              <h4 style="display: inline-block;color: #575757;font-size: 15px">进修时间&nbsp;:&nbsp;</h4>
+              <p style="margin-top: 5px;display: inline-block;color: #575757;font-size: 15px">{{vm.show.period}}</p>
+            </div>
+            <div >
+              <h4 style="display: inline-block;color: #575757;font-size: 15px">进修费用&nbsp;:&nbsp;</h4>
+              <p style="margin-top: 5px;display: inline-block;color: #575757;font-size: 15px">{{vm.show.fee}}</p>
+            </div>
+            <div>
+              <h4 style="color: #575757;font-size: 15px">详情</h4>
+            </div>
+            <div id="show" style="margin-top: 62px">
+            </div>
+            <div ng-if="vm.show.attachments.length">
+              <h4>附件:</h4>
+              <div ng-repeat="i in vm.show.attachments">
+                <a href="{{i.url}}">{{i.name}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="row" style="margin-left: -20px;margin-right: -20px">
+  <div class="ibox-content" style="padding: 0;position: relative;min-height: 500px">
+    <div class="col-md-2" style="padding-left: 0;position: fixed;width: 184px;z-index: 100">
+      <ul class="list-group navigation list-unstyled nav metismenu"
+          style="border-top: none" side-navigation id="side-menu">
+        <li ng-class="{'tabBase active bg-active': $state.includes('admin.jx.application.navigation.step')}" class="baseTab" style="margin-top: 0">
+          <a href=""><span class="nav-label">个人信息</span><span class="fa arrow"  style="margin-right: 20px;margin-left: 0"></span></a>
+          <ul class="nav nav-second-level" ng-class="{in: $state.includes('admin.jx.application.navigation.step')}">
+            <li ui-sref-active="active bg-active " style="margin-top: 12px"><a ui-sref="admin.jx.application.navigation.step.base">基本信息</a></li>
+            <li ui-sref-active="active bg-active"><a ui-sref="admin.jx.application.navigation.step.work">工作信息</a></li>
+            <li ui-sref-active="active bg-active"><a ui-sref="admin.jx.application.navigation.step.study">学习信息</a></li>
+            <li ui-sref-active="active bg-active"><a ui-sref="admin.jx.application.navigation.step.other">自评及其他</a></li>
+          </ul>
+        </li>
+        <li ui-sref-active="tabChoice active bg-active" class="choiceTab">
+          <a ui-sref="admin.jx.application.navigation.courses"><span>选择进修班</span></a>
+        </li>
+        <li ui-sref-active="tabDown active bg-active" class="downloadTab"><a ui-sref="admin.jx.application.navigation.show"><span>下载申请表</span></a></li>
+        <li ui-sref-active="tabSubmit active bg-active" class="submitTab"><a ui-sref="admin.jx.application.navigation.submit"><span>提交申请表</span></a></li>
+      </ul>
+    </div>
+    <div class="col-md-10 col-md-offset-2">
+      <div ui-view></div>
+    </div>
+  </div>
+</div>

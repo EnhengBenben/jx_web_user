@@ -1,0 +1,12 @@
+<div class="navTab" style="margin-top: -10px">
+  <ul class="list-unstyled">
+    <li ui-sref-active="active dashboardActive"><a ui-sref="admin.jx.dashboard">首页</a></li>
+    <li ng-class="{'active dashboardActive': $state.includes('admin.jx.course')}"><a ui-sref="admin.jx.course.list">进修班</a></li>
+    <li ng-class="{'active dashboardActive': $state.includes('admin.jx.notice')}"><a ui-sref="admin.jx.notice.list">进修公告</a></li>
+    <li ui-sref-active="active dashboardActive"><a ui-sref="admin.jx.contact.list">联系方式</a></li>
+    <li ng-class="{'active dashboardActive': $state.includes('admin.jx.application')}"><a ui-sref="admin.jx.application.navigation.step.base">立即申请</a></li>
+    <li ui-sref-active="active dashboardActive"><a ui-sref="admin.jx.result">我的申请</a></li>
+  <li style="float: right;border: 0" ng-if="$localStorage.token"><a ng-click="vm.logout()">退出</a></li>
+  </ul>
+</div>
+<div ui-view class="content"></div>

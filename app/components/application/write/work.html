@@ -1,0 +1,154 @@
+<div class="ibox">
+  <div class="ibox-content">
+
+    <div class="spiner-example" ng-if="!vm.add">
+      <div class="sk-spinner sk-spinner-fading-circle">
+        <div class="sk-circle1 sk-circle"></div>
+        <div class="sk-circle2 sk-circle"></div>
+        <div class="sk-circle3 sk-circle"></div>
+        <div class="sk-circle4 sk-circle"></div>
+        <div class="sk-circle5 sk-circle"></div>
+        <div class="sk-circle6 sk-circle"></div>
+        <div class="sk-circle7 sk-circle"></div>
+        <div class="sk-circle8 sk-circle"></div>
+        <div class="sk-circle9 sk-circle"></div>
+        <div class="sk-circle10 sk-circle"></div>
+        <div class="sk-circle11 sk-circle"></div>
+        <div class="sk-circle12 sk-circle"></div>
+      </div>
+    </div>
+
+    <form class="form-horizontal" novalidate id="form-work" ng-if="vm.add">
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="article_title">工作单位</label>
+        <div class="col-md-10">
+          <input type="text" required ng-model="vm.add.org_name" class="form-control" id="article_title" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="article_title">单位地址</label>
+        <div class="col-md-10">
+          <input type="text" required ng-model="vm.add.org_address" class="form-control" id="article_title" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="article_title">单位级别</label>
+        <div class="col-md-3">
+          <label for="" style="width: 100%">
+            <select class="form-control" ng-model="vm.add.org_rank_id" id="category"
+                    ng-options="r.id as r.name for r in vm.settings.org_rank">
+              <option value="">请选择级别</option>
+            </select>
+          </label>
+        </div>
+        <label class="col-md-3 control-label" for="article_title">所在地域</label>
+        <div class="col-md-3">
+          <select class="form-control" ng-model="vm.add.org_region_id" id="category"
+                  ng-options="r.id as r.name for r in vm.settings.org_Region">
+            <option value="">请选择地域</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="article_title">邮政编码</label>
+        <div class="col-md-3">
+          <input type="text" required ng-model="vm.add.org_zip_code" class="form-control" id="article_title" placeholder="">
+        </div>
+        <label class="col-md-3 control-label" for="article_title">单位电话</label>
+        <div class="col-md-3">
+          <input type="text" required ng-model="vm.add.org_tel" class="form-control" id="article_title" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="article_title">技术职称</label>
+        <div class="col-md-3">
+          <select class="form-control" ng-model="vm.add.tech_duty_id" id="category"
+                  ng-options="r.id as r.name for r in vm.settings.tech_duty">
+            <option value="">请选择</option>
+          </select>
+        </div>
+        <label class="col-md-3 control-label" for="article_title">行政职务</label>
+        <div class="col-md-3">
+          <select class="form-control" ng-model="vm.add.admin_duty_id" id="category"
+                  ng-options="r.id as r.name for r in vm.settings.admin_duty">
+            <option value="">请选择</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="">参加工作年份</label>
+        <div class="col-md-3">
+          <input type="text" ng-model="vm.add.start_year" class="form-control" id="start_at">
+        </div>
+        <label class="col-md-3 control-label" for="article_title">从事专业</label>
+        <div class="col-md-3">
+          <input type="text" ng-model="vm.add.work_major" class="form-control"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="article_title">科室</label>
+        <div class="col-md-3">
+          <input type="text" required ng-model="vm.add.offices" class="form-control" id="article_title" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label">工作经历</label>
+        <div class="col-md-10" style="padding-left: 0">
+          <table class="table table-bordered">
+            <tbody>
+            <tr  class="none-border">
+              <td style="width: 150px;color: inherit;font-weight: 500">开始时间</td>
+              <td style="width: 150px;color: inherit;font-weight: 500">结束时间</td>
+              <td style="color: inherit;font-weight: 500">工作单位</td>
+              <td style="color: inherit;font-weight: 500;width: 100px;text-align: center">职称</td>
+              <td style="width: 100px;color: inherit;font-weight: 500">职务</td>
+              <td>操作</td>
+            </tr>
+            <tr ng-repeat="o in vm.work track by $index" ng-init = "$index = 1" class="none-border">
+              <td>
+                <input type="text" date-time min-view="date" format="YYYY-MM-DD" timezone="Asia/Shanghai" auto-close="true"
+                       ng-model="o.start_date" class="form-control" id="start_at">
+              </td>
+              <td>
+                <input type="text" date-time min-view="date" format="YYYY-MM-DD" timezone="Asia/Shanghai" auto-close="true"
+                       ng-model="o.end_date" class="form-control" id="start_at">
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="o.org_name"/>
+              </td>
+              <td>
+                <input ng-model="o.tech_duty" class="form-control" type="text"/>
+              </td>
+              <td>
+                <input type="text" class="form-control" placeholder="" ng-model="o.admin_duty"/>
+              </td>
+              <td style="width: 50px;">
+                <div class="btn btn-danger btn-sm" ng-click="vm.removeOption($index)" style="padding: 2px 10px"><i
+                  class="fa fa-trash-o"></i> 删除
+                </div>
+              </td>
+            </tr>
+            <tr class="none-border">
+              <td colspan="5">
+              </td>
+              <td style="width: 50px;">
+                <div class="btn btn-primary btn-sm"
+                     ng-click="vm.addOption()" style="padding: 2px 10px">
+                  <i class="fa fa-plus"></i> 添加
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+          <div class="btn btn-primary" ng-click="vm.save()" style="padding: 6px 20px">保存</div>
+          <div class="help-block">都是必填项，如果没有值，请填“无”</div>
+        </div>
+      </div>
+  </form>
+</div>
+</div>

@@ -1,0 +1,27 @@
+
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div class="row" style="padding: 0;margin: 0;width: 1150px;margin: 0 auto;">
+        <!-- Main view  -->
+      <div style="height: 197px;width: 100%;background-image: url('../images/banner/background.png');overflow: hidden;position: relative">
+        <img ng-src="images/1px/banner_dot.png" style="height: 100%;position: absolute;left: 0;top: 0;z-index: 100">
+        <img ng-src="images/1px/banner_stripes.png" style="height: 100%;width:100%;position: absolute;left: 0;top: 0;z-index: 10">
+        <img ng-src="images/banner/carousel1.png" style="position: absolute;top: 0;right: 0">
+        <div style="width: 614px;height: 197px">
+          <img class="animated fadeIn" ng-src="images/banner/carousel1.png" style="position: absolute;top: 0;right: 0" ng-if="admin.chose == 0">
+          <img class="animated fadeIn" ng-src="images/banner/carousel2.png" style="position: absolute;top: 0;right: 0" ng-if="admin.chose == 1">
+          <img class="animated fadeIn" ng-src="images/banner/carousel3.png" style="position: absolute;top: 0;right: 0" ng-if="admin.chose == 2">
+        </div>
+        <div style="position: absolute;top: 0;left: 30px;margin-top: 55px;z-index: 1000">
+          <!--<img src="{{admin.hospital.logo}}" style="width: 70px">-->
+        </div>
+        <div style="position: absolute;top: 0;left: 130px;margin-top: 55px;z-index: 1000">
+          <h1 style="margin: 10px;color: #FFF;font-size: 32px;font-weight: 500">{{admin.hospital.name}}</h1>
+          <p style="margin-left: 10px;color: #FFF;font-size: 24px">在线进修申请系统</p>
+        </div>
+      </div>
+        <div ui-view></div>
+        <!-- Footer -->
+        <div ng-include="'views/footer.html'"></div>
+    </div>
+
+

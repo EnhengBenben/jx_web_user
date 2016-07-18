@@ -1,0 +1,46 @@
+<div class="ibox" style="clear: both;margin-top: 49px">
+  <div class="ibox-content" style="padding-top: 0">
+    <form class="form-horizontal" novalidate>
+      <div style="text-align: center;margin: 0 auto;;margin-bottom: 30px;width: 812px" ng-if="!vm.editCourse">
+        <h3 ng-if="vm.course.name" style="font-size: 20px;width: 710px;margin: 0 auto;">{{vm.course.name}}</h3>
+      </div>
+      <div ng-if="!vm.editCourse" style="margin: 0 auto;;margin-top: 20px;text-align: center;border: 2px solid #E7EAEC;height: 170px;width: 710px;position: relative">
+        <div style="position: absolute;border-bottom: 1px dashed #000;top: 61px;width: 400px;margin-left: 155px;">
+
+        </div>
+        <div style="font-size: 15px;width: 270px;margin: 50px auto 0;background-color: #FFF;position: relative">
+          <p>[&nbsp;如果您想更改进修班,请点击下面按钮&nbsp;]</p>
+        </div>
+        <div class="btn btn-primary" ng-click="vm.courseEdit()" style="margin-top: 15px">选择进修班</div>
+      </div>
+
+      <div ng-if="vm.editCourse">
+        <div class="form-group" style="margin-bottom: 30px">
+          <label for="year" class="control-label col-md-2" style="font-size: 16px;padding-right: 10px">报到年份</label>
+          <div class="col-md-8" style="padding-left: 10px">
+            <select class="form-control" ng-model="vm.filter.year" id="year" ng-options="y as y for y in vm.years">
+              <option value="">全部年份</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 30px">
+          <label for="" class="control-label col-md-2" style="font-size: 16px;padding-right: 10px">我的进修班</label>
+          <div class="col-md-8" style="padding-left: 10px;">
+            <select class="form-control" ng-model="vm.filter.courseId" ng-options="i.id as i.name for i in vm.courses">
+              <option value="">请选择进修班</option>
+            </select>
+          </div>
+          <!--<div class="col-md-2" ng-if="vm.course">-->
+            <!--<a ui-sref="admin.jx.course.courseShow({id:vm.course})">查看详情</a>-->
+          <!--</div>-->
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <div class="btn btn-primary" ng-click="vm.sure()">确定</div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,249 @@
+
+<div class="spiner-example" ng-if="!vm.show">
+  <div class="sk-spinner sk-spinner-fading-circle">
+    <div class="sk-circle1 sk-circle"></div>
+    <div class="sk-circle2 sk-circle"></div>
+    <div class="sk-circle3 sk-circle"></div>
+    <div class="sk-circle4 sk-circle"></div>
+    <div class="sk-circle5 sk-circle"></div>
+    <div class="sk-circle6 sk-circle"></div>
+    <div class="sk-circle7 sk-circle"></div>
+    <div class="sk-circle8 sk-circle"></div>
+    <div class="sk-circle9 sk-circle"></div>
+    <div class="sk-circle10 sk-circle"></div>
+    <div class="sk-circle11 sk-circle"></div>
+    <div class="sk-circle12 sk-circle"></div>
+  </div>
+</div>
+    <div style="text-align: center;margin-top: 49px;margin-bottom: 30px;width: 812px" ng-if="vm.show">
+      <h3 ng-if="vm.course.name" style="font-size: 20px">{{vm.course.name}}</h3>
+    </div>
+    <div ng-if="vm.show" style="margin-top: 20px;text-align: center;border: 2px solid #E7EAEC;height: 170px;width: 812px;position: relative">
+      <div style="position: absolute;border-bottom: 1px dashed #000;top: 61px;width: 600px;margin-left: 106px;">
+      </div>
+      <div style="font-size: 15px;width: 500px;margin: 50px auto 0;background-color: #FFF;position: relative">
+        <p>[&nbsp;请仔细检查申请信息无误后，下载申请表，并打印盖章后 <a ui-sref="admin.jx.application.navigation.submit">提交申请表</a>&nbsp;]</p>
+      </div>
+      <div class="btn btn-primary" ng-click="vm.exportApplication()" style="border-radius: 0;margin-top: 15px">下载申请表</div>
+    </div>
+    <div ng-if="vm.show" style="width: 812px">
+      <form class="form-horizontal noBottom" novalidate>
+
+        <div class="ibox-title" style="margin-top: 50px;text-align: center;border-top: none;margin-bottom: 20px;width: 812px">
+          <h2 style="font-size: 20px">申请信息</h2>
+        </div>
+        <h4 class="bg-title">基本信息</h4>
+        <div class="row" style="padding-bottom: 5px;margin-bottom: 10px;position: relative">
+          <div class="col-md-10">
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">姓名</label>
+              <div class="col-md-3 topP">{{vm.show.name}}</div>
+              <label for="" class="control-label col-md-3">性别</label>
+              <div class="col-md-3 topP">{{vm.show.gender}}</div>
+              </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">出生日期</label>
+              <div class="col-md-3 topP">{{vm.show.birthday}}</div>
+              <label for="" class="control-label col-md-3">民族</label>
+              <div class="col-md-3 topP">{{vm.show.nation}}</div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">政治面貌</label>
+              <div class="col-md-3 topP">{{vm.show.political_status}}</div>
+              <label for="" class="control-label col-md-3">婚姻状况</label>
+              <div class="col-md-3 topP">{{vm.show.marital_status}}</div>
+              </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">籍贯</label>
+              <div class="col-md-3 topP">{{homeland}}</div>
+              <label for="" class="control-label col-md-3">健康状况</label>
+              <div class="col-md-3 topP" style="width: 45px">{{vm.show.health_status}}</div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">身份证号</label>
+              <div class="col-md-3 topP">{{vm.show.id_no}}</div>
+              <label for="" class="control-label col-md-3">手机号码</label>
+              <div class="col-md-3 topP">{{vm.show.mobile}}</div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">电子邮箱</label>
+              <div class="col-md-3 topP">{{vm.show.email}}</div>
+            </div>
+            <div class="form-group" style="width: 140%">
+              <label for="" class="control-label col-md-2" style="width: 12.6%">家属姓名</label>
+              <div class="col-md-2 topP" style="margin-right: 4%">{{vm.show.relative.data.name}}</div>
+              <label for="" class="control-label col-md-2">家属手机号</label>
+              <div class="col-md-2 topP">{{vm.show.relative.data.mobile}}</div>
+              <label for="" class="control-label col-md-2">与本人关系</label>
+              <div class="col-md-2 topP">{{vm.show.relative.data.relationship}}</div>
+            </div>
+            <div class="form-group" style="width: 140%">
+              <label for="" class="control-label col-md-2" style="width: 12.6%">主管姓名</label>
+              <div class="col-md-2 topP" style="margin-right: 4%">{{vm.show.director.data.name}}</div>
+              <label for="" class="control-label col-md-2">主管手机号</label>
+              <div class="col-md-2 topP">{{vm.show.director.data.mobile}}</div>
+              <label for="" class="control-label col-md-2">主管职务</label>
+              <div class="col-md-2 topP">{{vm.show.director.data.duty}}</div>
+            </div>
+          </div>
+          <div class="col-md-2" style="position: absolute;right: 50px">
+            <img ng-src="{{vm.show.photo[0].url}}" style="height: 110px">
+          </div>
+        </div>
+        <h4 class="bg-title" style="margin-top: 20px">工作信息</h4>
+        <div class="row" style="padding-bottom: 5px;margin-bottom: 10px">
+          <div class="col-md-10">
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">工作单位</label>
+              <div class="col-md-3 topP">{{vm.show.org_name}}</div>
+              <label for="" class="control-label col-md-3">单位等级</label>
+              <div class="col-md-3 topP">{{vm.show.orgRank.data.name}}</div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">所在区域</label>
+              <div class="col-md-3 topP">{{vm.show.orgRegion.data.name}}</div>
+              <label for="" class="control-label col-md-3">技术职称</label>
+              <div class="col-md-3 topP">{{vm.show.techDuty.data.name}}</div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">行政职务</label>
+              <div class="col-md-3 topP">{{vm.show.adminDuty.data.name}}</div>
+              <label for="" class="control-label col-md-3">参加工作年份</label>
+              <div class="col-md-3 topP">{{vm.show.start_year}}</div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">专业</label>
+              <div class="col-md-3 topP">{{vm.show.work_major}}</div>
+              <label for="" class="control-label col-md-3">单位地址</label>
+              <div class="col-md-3 topP">{{vm.show.org_address}}</div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">单位电话</label>
+              <div class="col-md-3 topP">{{vm.show.org_tel}}</div>
+              <label for="" class="control-label col-md-3">邮政编码</label>
+              <div class="col-md-3 topP">{{vm.show.org_zip_code}}</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding-bottom: 15px;padding-top: 15px;border-bottom: 1px solid #eee;border-top: 1px solid #eee;width: 83.333%">
+          <div class="form-group center-lab">
+            <label for="" class="control-label col-md-4 col-md-offset-2">编码</label>
+            <label for="" class="control-label col-md-3">发证机关</label>
+            <label for="" class="control-label col-md-3">发证日期</label>
+
+            <label for="" class="control-label col-md-2" style="text-align: right !important;">职业证书</label>
+            <div class="col-md-4 topP">{{vm.show.practicing_certificate_no}}</div>
+            <div class="col-md-3 topP">{{vm.show.practicing_certificate_org}}</div>
+            <div class="col-md-3 topP">{{vm.show.practicing_certificate_date}}</div>
+            <label for="" class="control-label col-md-2" style="text-align: right !important;">资格证书</label>
+            <div class="col-md-4 topP">{{vm.show.qualification_certificate_no}}</div>
+            <div class="col-md-3 topP">{{vm.show.qualification_certificate_org}}</div>
+            <div class="col-md-3 topP">{{vm.show.qualification_certificate_date}}</div>
+          </div>
+        </div>
+        <div style="padding-bottom: 15px;padding-top: 15px;width: 83.333%">
+          <div class="form-group center-lab">
+            <label for="" class="control-label col-md-2" style="text-align: right !important;">工作经历</label>
+            <label for="" class="control-label col-md-2">开始时间</label>
+            <label for="" class="control-label col-md-2">结束时间</label>
+            <label for="" class="control-label col-md-2">单位</label>
+            <label for="" class="control-label col-md-2">职称</label>
+            <label for="" class="control-label col-md-2">职务</label>
+            <div ng-repeat="i in vm.show.workExp.data">
+              <div class="col-md-2 col-md-offset-2 topP" style="padding-left: 0">{{i.start_date}}</div>
+              <div class="col-md-2 topP" style="padding-left: 0">{{i.end_date}}</div>
+              <div class="col-md-2 topP" style="padding-left: 0">{{i.org_name}}</div>
+              <div class="col-md-2 topP"  style="padding-left: 0">{{i.tech_duty}}</div>
+              <div class="col-md-2 topP" style="padding-left: 0">{{i.admin_duty}}</div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="bg-title">学习科研</h4>
+        <div style="padding-bottom: 15px;padding-top: 15px;">
+          <div class="row" style="padding-bottom: 5px;">
+            <div class="col-md-10">
+              <div class="form-group">
+                <label for="" class="control-label col-md-2">毕业学校</label>
+                <div class="col-md-3 topP">{{vm.show.graduate_school}}</div>
+                <label for="" class="control-label col-md-3">所学专业</label>
+                <div class="col-md-3 topP">{{vm.show.work_major}}</div>
+              </div>
+              <div class="form-group">
+                <label for="" class="control-label col-md-2">最高学历</label>
+                <div class="col-md-3 topP">{{vm.show.degree.data.name}}</div>
+                <label for="" class="control-label col-md-3">毕业时间</label>
+                <div class="col-md-3 topP">{{vm.show.graduate_date}}</div>
+              </div>
+              <div class="form-group">
+                <label for="" class="control-label col-md-2">外语能力</label>
+                <div class="col-md-3 topP">{{vm.show.foreign_language}}</div>
+              </div>
+              </div>
+            </div>
+
+
+        </div>
+        <div style="padding-bottom: 15px;padding-top: 15px;border-bottom: 1px solid #eee;border-top: 1px solid #eee;width: 83.333%">
+          <div class="form-group center-lab">
+            <label for="" class="control-label col-md-2" style="text-align: right !important;">学习经历</label>
+            <label for="" class="control-label col-md-2">开始时间</label>
+            <label for="" class="control-label col-md-2">结束时间</label>
+            <label for="" class="control-label col-md-2">所在学校</label>
+            <label for="" class="control-label col-md-2">专业</label>
+            <label for="" class="control-label col-md-2">学历</label>
+            <div ng-repeat="i in vm.show.education.data">
+              <div class="col-md-2 col-md-offset-2 topP" style="padding-left: 0">{{i.start_date}}</div>
+              <div class="col-md-2 topP" style="padding-left: 0">{{i.graduate_date}}</div>
+              <div class="col-md-2 topP" style="padding-left: 0">{{i.school_name}}</div>
+              <div class="col-md-2 topP" style="padding-left: 0">{{i.major}}</div>
+              <div class="col-md-2 topP" style="padding-left: 0">{{i.degree}}</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding-bottom: 15px;padding-top: 15px;width: 83.333%">
+          <div class="form-group center-lab">
+            <label for="" class="control-label col-md-2" style="text-align: right !important;">论文/科研情况</label>
+            <label for="" class="control-label col-md-4">题目</label>
+            <label for="" class="control-label col-md-3">发表刊物</label>
+            <label for="" class="control-label col-md-3">发表日期</label>
+            <div ng-repeat="i in vm.show.paper.data">
+              <div class="col-md-4 col-md-offset-2 topP" style="padding-left: 0">{{i.title}}</div>
+              <div class="col-md-3 topP" style="padding-left: 0">{{i.journal}}</div>
+              <div class="col-md-3 topP" style="padding-left: 0">{{i.date}}</div>
+            </div>
+          </div>
+        </div>
+        <h4 class="bg-title">自评及其他</h4>
+        <div style="padding-bottom: 15px;padding-top: 15px;border-bottom: 1px solid #eee">
+          <div class="form-group">
+            <label for="" class="control-label col-md-2">进修培训要求</label>
+            <div class="col-md-10 topP">{{vm.show.professional_level}}</div>
+          </div>
+        </div>
+        <div style="padding-bottom: 15px;padding-top: 15px;border-bottom: 1px solid #eee;">
+          <div class="form-group">
+            <label for="" class="control-label col-md-2" style="padding-left: 0">工作能力及业务水平</label>
+            <div class="col-md-10 topP">{{vm.show.requirement}}</div>
+          </div>
+        </div>
+        <div style="padding-bottom: 15px;padding-top: 15px;border-bottom: 1px solid #eee;">
+          <div class="form-group">
+            <label for="" class="control-label col-md-2" style="padding-left: 0">医德表现及科学作风</label>
+            <div class="col-md-10 topP">{{vm.show.expression}}</div>
+          </div>
+        </div>
+        <div style="padding-bottom: 15px;padding-top: 15px;">
+          <div class="form-group">
+            <label for="" class="control-label col-md-2">其他电子资料</label>
+            <div class="col-md-10 topP">
+              <a href="{{vm.show.ID_card[0].url}}" style="margin-right: 10px">{{vm.show.ID_card[0].name}}</a>
+              <a href="{{vm.show.diploma[0].url}}" style="margin-right: 10px">{{vm.show.diploma[0].name}}</a>
+              <a href="{{vm.show.degree_photo[0].url}}" style="margin-right: 10px">{{vm.show.degree_photo[0].name}}</a>
+              <a href="{{vm.show.practicing_certificate[0].url}}" style="margin-right: 10px">{{vm.show.practicing_certificate[0].name}}</a>
+              <a href="{{vm.show.qualification_certificate[0].url}}">{{vm.show.qualification_certificate[0].name}}</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>

@@ -1,0 +1,153 @@
+<div class="ibox" style="padding: 15px 10px 20px 10px">
+  <div class="ibox-content notice-backgrount" style="border-top: none;padding-top: 10px;min-height: 400px">
+    <form class="form-horizontal" novalidate style="margin: 0 -20px;" ng-if="vm.application">
+      <div class="form-group" style="height: 100px;line-height: 100px">
+        <label for="" class="control-label col-md-2" style="font-size: 16px;margin-left: 5%">我的进修班</label>
+        <div class="col-md-8" style="line-height: 108px;width: 65.666%">
+          <select class="form-control" ng-model="vm.course"
+                  ng-options="i.applicationId as i.name for i in vm.courses" style="display: inline-block;">
+          </select>
+        </div>
+      </div>
+    </form>
+    <div>
+      <div class="spiner-example" ng-if="!(vm.application || vm.showDefault)">
+        <div class="sk-spinner sk-spinner-fading-circle">
+          <div class="sk-circle1 sk-circle"></div>
+          <div class="sk-circle2 sk-circle"></div>
+          <div class="sk-circle3 sk-circle"></div>
+          <div class="sk-circle4 sk-circle"></div>
+          <div class="sk-circle5 sk-circle"></div>
+          <div class="sk-circle6 sk-circle"></div>
+          <div class="sk-circle7 sk-circle"></div>
+          <div class="sk-circle8 sk-circle"></div>
+          <div class="sk-circle9 sk-circle"></div>
+          <div class="sk-circle10 sk-circle"></div>
+          <div class="sk-circle11 sk-circle"></div>
+          <div class="sk-circle12 sk-circle"></div>
+        </div>
+      </div>
+      <div ng-if="(vm.application.status == '待审核')">
+        <div class="ibox">
+          <div class="ibox-content" style="text-align: center;font-size: 14px;padding-top: 0">
+            <h3 style="margin-bottom: 32px">正在审核中,请耐心等待</h3>
+           <div class="border-application">
+             <div style="position: absolute;border-bottom: 1px dashed #000;top: 45px;width: 300px;margin-left: 200px;"></div>
+             <p style="width: 200px;background-color: #FFF;position: relative;z-index: 1;margin: 0 auto;">[&nbsp;您可以在发榜前取消申请&nbsp;]</p>
+             <p class="border-p border-content">进修班:&nbsp;<a ui-sref="admin.jx.course.courseShow({id:vm.application.course.data.id})">{{vm.application.course.data.name}}</a></p>
+             <p class="border-content">&nbsp;结果公布日期:{{vm.application.course.data.announcement_date}}</p>
+             <div class="row">
+               <div style="display: inline-block;margin: 10px;">
+                 <div class="btn btn-primary" ng-click="vm.remove(vm.application.id)" style="background-color: red;border: red;">取消申请</div>
+               </div>
+             </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="(vm.application.status == '已拒绝进修' || vm.application.status == '已拒绝调班')">
+        <div class="ibox">
+          <div class="ibox-content" style="text-align: center;font-size: 14px;padding-top: 0">
+            <h3 style="margin-bottom: 32px">您已拒绝进修</h3>
+            <div class="border-application">
+              <div style="position: absolute;border-bottom: 1px dashed #000;top: 45px;width: 400px;margin-left: 150px;"></div>
+              <p style="width: 280px;background-color: #FFF;position: relative;z-index: 1;margin: 0 auto;">[&nbsp;感谢您的申请,欢迎申请其他进修班,谢谢&nbsp;]</p>
+              <p class="border-p border-content">进修班:&nbsp;<a ui-sref="admin.jx.course.courseShow({id:vm.application.course.data.id})">{{vm.application.course.data.name}}</a></p>
+              <div class="row">
+                <div style="display: inline-block;margin: 10px;">
+                  <div class="btn btn-primary" ui-sref="admin.jx.course.list">申请其他进修班</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="vm.application.status == '申请未通过'">
+        <div class="ibox">
+          <div class="ibox-content" style="text-align: center;font-size: 14px;padding-top: 0">
+            <h3 style="margin-bottom: 32px">申请未通过</h3>
+            <div class="border-application">
+              <div style="position: absolute;border-bottom: 1px dashed #000;top: 45px;width: 550px;margin-left: 76px;"></div>
+              <p style=";width: 480px;background-color: #FFF;position: relative;z-index: 1;margin: 0 auto;">[&nbsp;感谢您的申请，非常遗憾您的申请没有通过，您可选择申请其它进修班&nbsp;]</p>
+              <div class="row">
+                <div style="display: inline-block;margin-top: 15px">
+                  <div class="btn btn-primary" ui-sref="admin.jx.course.list">继续申请</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="vm.application.status == '待确认调班'">
+        <div class="ibox">
+          <div class="ibox-content" style="text-align: center;font-size: 14px;padding-top: 0">
+            <h3 style="margin-bottom: 32px">您的申请被调整</h3>
+           <div class="border-application">
+             <div style="position: absolute;border-bottom: 1px dashed #000;top: 45px;width: 550px;margin-left: 76px;"></div>
+             <p style="width: 480px;background-color: #FFF;position: relative;z-index: 1;margin: 0 auto;">[&nbsp;您所在的进修班申请人数过多，您被调到以下班级，请确认是否接受调班&nbsp;]</p>
+             <p class="border-p border-content">原进修班:&nbsp;<a ui-sref="admin.jx.course.courseShow({id:vm.application.course.data.id})">{{vm.application.course.data.name}}</a></p>
+             <p class="border-content">调整后进修班:&nbsp;<a ui-sref="admin.jx.course.courseShow({id:vm.application.transferCourse.data.id})">{{vm.application.transferCourse.data.name}}</a></p>
+             <p class="border-content">确认截止时间:&nbsp;{{vm.application.transferCourse.data.announcement_date}}</p>
+             <div class="row">
+               <div style="display: inline-block;margin: 10px;">
+                 <div class="btn btn-primary btn-red" ui-sref="admin.jx.course.list"
+                      ng-click="vm.confirm(vm.application.id,false)">拒绝调班
+                 </div>
+               </div>
+               <div style="display: inline-block;margin: 10px;">
+                 <div class="btn btn-primary" ui-sref="admin.jx.course.list"
+                      ng-click="vm.confirm(vm.application.id,true)">接受调班
+                 </div>
+               </div>
+             </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="vm.application.status == '待确认通过'">
+        <div class="ibox">
+          <div class="ibox-content" style="text-align: center;font-size: 14px;padding-top: 0">
+            <h3 style="margin-bottom: 32px">申请通过</h3>
+           <div class="border-application">
+             <div style="position: absolute;border-bottom: 1px dashed #000;top: 45px;width: 500px;margin-left: 100px;"></div>
+             <p style="width: 395px;background-color: #FFF;position: relative;z-index: 1;margin: 0 auto;">[&nbsp;恭喜您的申请通过，请确认接受进修，拒绝将无法参加进修&nbsp;]</p>
+             <p class="border-p border-content">进修班:&nbsp;<a ui-sref="admin.jx.course.courseShow({id:vm.application.course.id})">{{vm.application.course.data.name}}</a></p>
+             <p class="border-content">确认截止时间:&nbsp;{{vm.application.confirm_deadline}}</p>
+             <div class="row">
+               <div style="display: inline-block;margin: 10px;">
+                 <div class="btn btn-primary btn-red" ui-sref="admin.jx.course.list"
+                      ng-click="vm.pass(vm.application.id,false)">暂不进修
+                 </div>
+               </div>
+               <div style="display: inline-block;margin: 10px;">
+                 <div class="btn btn-primary" ui-sref="admin.jx.course.list"
+                      ng-click="vm.pass(vm.application.id,true)">确认进修
+                 </div>
+               </div>
+             </div>
+           </div>
+          </div>
+        </div>
+      </div>
+        <div class="ibox-content" style="text-align: center;font-size: 14px;padding-top: 0" ng-if="vm.application.status == '已接受进修' || vm.application.status == '已接受调班'">
+            <h3 style="margin-bottom: 32px">欢迎您进修</h3>
+           <div class="border-application">
+             <div style="position: absolute;border-bottom: 1px dashed #000;top: 45px;width: 500px;margin-left: 100px;"></div>
+             <p style="width: 376px;background-color: #FFF;position: relative;z-index: 1;margin: 0 auto;">[&nbsp;请下载录取通知书，按照报道须知要求准时来我院报道&nbsp;]</p>
+             <p class="border-p border-content">
+               进修班 : <a ui-sref="admin.jx.course.courseShow({id:vm.application.course.data.id})" ng-if="vm.application.status == '已接受进修'">{{vm.application.course.data.name}}</a>
+               <a ui-sref="admin.jx.course.courseShow({id:vm.application.transferCourse.data.id})" ng-if="vm.application.status == '已接受调班'">{{vm.application.transferCourse.data.name}}</a></p>
+             <p class="border-content">录取通知书 : <a ng-click="vm.downloadEnrollment(vm.application.id)">录取通知书</a></p>
+             <p class="border-content">报到须知 : <a ng-click="vm.enrollment(vm.application.id)">报到须知</a></p>
+             <p class="border-content" ng-if="vm.application.status == '已接受'">报到时间 : {{vm.application.course.data.application_deadline}}</p>
+             <p class="border-content" ng-if="vm.application.status == '已接受调班'">报到时间 : {{vm.application.transferCourse.data.application_deadline}}</p>
+           </div>
+          </div>
+        </div>
+    <div ng-if="vm.showDefault" style="text-align: center;margin-top: 100px">
+      <h3>暂无申请</h3>
+      <img ng-src="images/image_no.png"/><br/>
+      <a ui-sref="admin.jx.course.list" style="margin-top: 20px;font-size: 14px;display: inline-block">快去申请进修班吧</a>
+    </div>
+      </div>
+    </div>
